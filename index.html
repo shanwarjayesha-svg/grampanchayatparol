@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gram Panchayat | Government of Maharashtra</title>
+
+<!-- NIC-compliant: No external CDN -->
+<style>
+:root{
+  --gov-blue:#0b3c6d;
+  --gov-gold:#f3c300;
+  --light:#f5f7fa;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:#111;background:#fff}
+header{border-bottom:4px solid var(--gov-blue);background:#fff}
+.header-wrap{display:flex;gap:14px;align-items:center;padding:12px 16px}
+.emblem{width:72px;height:auto}
+.header-text h1{margin:0;font-size:22px}
+.header-text p{margin:4px 0 0;font-size:14px}
+
+nav{background:var(--gov-blue)}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap}
+nav a{display:block;color:#fff;text-decoration:none;padding:12px 16px}
+nav a:hover{background:var(--gov-gold);color:#000}
+
+.notice{background:#eef2f6;border-bottom:1px solid #cbd5e1;padding:6px 10px;font-size:14px}
+
+.lang{margin-left:auto;display:flex;gap:6px}
+.lang button{background:#fff;border:1px solid #cbd5e1;padding:4px 8px;cursor:pointer}
+
+.container{padding:18px}
+.section{display:none}
+.section.active{display:block}
+h2{font-size:20px;border-bottom:2px solid var(--gov-blue);padding-bottom:4px}
+
+/* Carousel */
+.carousel{position:relative;max-width:100%;height:280px;overflow:hidden;border:1px solid #cbd5e1;margin-bottom:16px}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .6s}
+.slide.active{opacity:1}
+.slide img{width:100%;height:100%;object-fit:cover}
+
+/* Tables */
+table{width:100%;border-collapse:collapse;margin-top:10px}
+th,td{border:1px solid #000;padding:8px;text-align:left}
+
+.card{background:#fff;border:1px solid #cbd5e1;border-radius:6px;padding:12px;margin:8px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.person img{width:100%;max-width:140px;border:1px solid #cbd5e1}
+
+
+footer{background:var(--gov-blue);color:#fff;padding:14px;font-size:13px}
+footer p{margin:4px 0}
+
+/* Accessibility */
+:focus{outline:2px dashed var(--gov-gold)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-wrap">
+    <img src="D:\Website\Parol\images\logos\Logo.png" alt="State Emblem of India" class="emblem">
+    <div class="header-text">
+      <h1 data-mr="ग्रामपंचायत – पारोळ" data-en="Gram Panchayat – Parol">ग्रामपंचायत – पारोळ</h1>
+      <p data-mr="ग्रामीण विकास विभाग, महाराष्ट्र शासन" data-en="Rural Development Department, Government of Maharashtra">ग्रामीण विकास विभाग, महाराष्ट्र शासन</p>
+    </div>
+    <div class="lang">
+      <button onclick="setLang('mr')">मराठी</button>
+      <button onclick="setLang('en')">English</button>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul>
+    <li><a onclick="show('home')" data-mr="मुख्यपृष्ठ" data-en="Home">मुख्यपृष्ठ</a></li>
+    <li><a onclick="show('about')" data-mr="आमच्याबद्दल" data-en="About Us">आमच्याबद्दल</a></li>
+    <li><a onclick="show('services')" data-mr="ग्रामपंचायत सेवा" data-en="Services">ग्रामपंचायत सेवा</a></li>
+    <li><a onclick="show('team')" data-mr="ग्रामपंचायत संघ" data-en="GP Team">ग्रामपंचायत संघ</a></li>
+    <li><a onclick="show('gallery')" data-mr="छायाचित्रे" data-en="Gallery">छायाचित्रे</a></li>
+    <li><a onclick="show('tax')" data-mr="कर वसुली" data-en="House Tax">कर वसुली</a></li>
+    <li><a onclick="show('taxpay')" data-mr="घरपट्टी ऑनलाइन" data-en="Pay House Tax">घरपट्टी ऑनलाइन</a></li>
+    <li><a onclick="show('complaint')" data-mr="तक्रार पोर्टल" data-en="Complaint Portal">तक्रार पोर्टल</a></li>
+    <li><a onclick="show('contact')" data-mr="संपर्क" data-en="Contact">संपर्क</a></li>
+  </ul>
+</nav>
+
+<div class="notice">
+  <marquee behavior="scroll" direction="left" data-mr="सूचना: ग्रामपंचायत कार्यालयाचे कामकाज सकाळी 10 ते सायं 5 वाजेपर्यंत  ग्रामपंचायत पारोळ | ISO प्रमाणित प्रगतीपथावर आहे | PAPERLESS प्रमाणित प्रगतीपथावर आहे!!!." data-en="Notice: Office working hours 10 AM to 5 PM  Gram Panchayat Parol | ISO certification in progress | PAPERLESS certification in progress!!!">
+    सूचना: ग्रामपंचायत कार्यालयाचे कामकाज सकाळी 10 ते सायं 5.
+  </marquee>
+</div>
+
+<div class="container">
+
+<!-- HOME (gpsakvar.in inspired 3-column body layout) -->
+<section id="home" class="section active">
+  <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:14px">
+
+    <!-- LEFT PANEL -->
+    <div>
+      <div class="card">
+        <h3 data-mr="सूचना / अपडेट" data-en="Notices / Updates">सूचना / अपडेट</h3>
+        <ul>
+          <li>घरपट्टी भरण्याची अंतिम तारीख</li>
+          <li>स्वच्छता अभियान – ग्रामसभा</li>
+          <li>पाणीपुरवठा दुरुस्ती सूचना</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3 data-mr="महत्वाचे दुवे" data-en="Quick Links">महत्वाचे दुवे</h3>
+        <ul>
+          <li>डाउनलोड फॉर्म</li>
+          <li>GR / परिपत्रके</li>
+          <li>Citizen Charter</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- CENTER PANEL -->
+    <div>
+      <div class="carousel">
+        <div class="slide active"><img src="D:\Website\Parol\images\Events\a.jpeg"></div>
+        <div class="slide"><img src="D:\Website\Parol\images\Events\b.jpeg"></div>
+        <div class="slide"><img src="D:\Website\Parol\images\Events\c.jpeg"></div>
+                <div class="slide"><img src="D:\Website\Parol\images\Events\d.jpeg"></div>
+                <div class="slide"><img src="D:\Website\Parol\images\Events\e.jpeg"></div>
+      </div>
+      <div class="card">
+        <h2 data-mr="आपले स्वागत आहे" data-en="Welcome">आपले स्वागत आहे</h2>
+        <p data-mr="ग्रामपंचायत पारोळ, तालुका वसई, जिल्हा पालघर ही महाराष्ट्र ग्रामपंचायत अधिनियम 1958 अंतर्गत कार्यरत आहे." 
+           data-en="Gram Panchayat Parol, Taluka Vasai, District Palghar operates under Maharashtra Gram Panchayat Act, 1958."></p>
+      </div>
+      <div class="card">
+        <h2 data-mr="लोकसंख्या माहिती" data-en="Population Statistics"></h2>
+        <table>
+          <tr><th>एकूण</th><th>पुरुष</th><th>स्त्री</th><th>अ.जा.</th><th>अ.ज.</th><th>इतर</th></tr>
+          <tr><td>2153</td><td>1056</td><td>1097</td><td>884</td><td>316</td><td>953</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL -->
+    <div>
+      <div class="card person" width="40">
+        <center><img src="D:\Website\Parol\images\Grampanchayat\sarpanch.png"></center>
+        <p style="text-align: center;"><b>सरपंच</b><br>सौ.गीता गुरुनाथ कोरडा</p>
+      </div>
+      <div class="card person">
+        <center><img src="D:\Website\Parol\images\Grampanchayat\upsarpanch.jpeg"></center>
+        <p style="text-align: center;"><b>उपसरपंच</b><br>सौ.यज्ञा योगेश पाटील</p>
+      </div>
+
+      <div class="card person">
+        <center><img src="images/gramsevak.jpg"></center>
+        <p style="text-align: center;"><b>ग्रामपंचायत अधिकारी </b><br>सौ.स्नेहा मयुर पाटील</p>
+      </div>
+      <div class="card">
+        <h3 data-mr="कार्यालय वेळ" data-en="Office Hours">कार्यालय वेळ</h3>
+        <p>सकाळी 10.00 ते सायं 5.00</p>
+      </div>
+    </div>
+
+  </div><!-- Village Information -->
+     <div class="mb-8">
+      <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">ग्रामपंचायत माहिती</h2>
+      <div class="bg-white rounded-xl shadow-lg p-8">
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="card person">
+         <h3 class="text-xl font-bold text-gray-800 mb-4">सामान्य माहिती</h3>
+         <ul class="space-y-2 text-gray-700">
+          <li>📍 <strong>क्षेत्रफळ:</strong> २५३० चौ. किमी</li>
+          <li>🏘️ <strong>एकूण घरे:</strong> ४७८</li>
+          <li>🏫 <strong>जि.प.शाळा:</strong>६ </li>
+          <li>🏥 <strong>उपप्राथमिक आरोग्य केंद्र:</strong> १</li>
+          <li>👶 <strong>अंगणवाडी:</strong> २</li>
+         </ul>
+        </div>
+        <div class="card person">
+         <h3 class="text-xl font-bold text-gray-800 mb-4">सुविधा</h3>
+         <ul class="space-y-2 text-gray-700">
+          <li>💧 <strong>पिण्याचे पाणी:</strong> नळ योजना</li>
+          <li>⚡ <strong>वीज:</strong> संपूर्ण विद्युतीकरण</li>
+          <li>🚌 <strong>वाहतूक:</strong> नियमित बस सेवा</li>
+          <li>🏦 <strong>बँक:</strong> चांदीप व पेल्हार</li>
+          <li>📮 <strong>पोस्ट ऑफिस:</strong> १</li>
+         </ul>
+        </div>
+       </div>
+      </div>
+     </div>
+<div>
+<marquee behavior="scroll" direction="left">
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+<img src="" width="200" height="88" alt="Swimming fish" />
+</marquee>
+</div>
+
+</section><!-- ABOUT -->
+<section id="about" class="section">
+  <h2 data-mr="आमच्याबद्दल" data-en="About Us">आमच्याबद्दल</h2>
+  <p data-mr="ही ग्रामपंचायत महाराष्ट्र ग्रामपंचायत अधिनियम 1958 अंतर्गत स्थापन असून गावाच्या सर्वांगीण विकासासाठी कार्यरत आहे." data-en="The Gram Panchayat is established under the Maharashtra Gram Panchayat Act, 1958 and works for holistic village development."></p>
+<div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:14px">
+
+<!-- LEFT PANEL -->
+     <div>
+      <div class="card person">
+      <div class="info-card">
+       <h3>👶 अंगणवाडी माहिती</h3>
+       <p><strong>एकूण अंगणवाडी:</strong> 2</p>
+       <p><strong>नोंदणीकृत मुले:</strong> 0</p>
+       <p><strong>पोषण आहार:</strong> दैनिक वितरण</p>
+       <p><strong>कार्यकर्ते:</strong> 0</p>
+       <p><strong>आरोग्य तपासणी:</strong> मासिक</p>
+      </div>
+      </div>
+      <div class="card person">
+      <div class="info-card">
+       <h3>🏫 शाळा माहिती</h3>
+       <p><strong>प्राथमिक शाळा:</strong> ६</p>
+       <p><strong>माध्यमिक शाळा:</strong> २</p>
+       <p><strong>एकूण विद्यार्थी:</strong> 0</p>
+       <p><strong>शिक्षक:</strong> 0</p>
+       <p><strong>खेळाचे मैदान:</strong> उपलब्ध</p>
+      </div>
+      </div>
+      <div class="card person">
+      <div class="info-card">
+       <h3>🏥 आरोग्य विभाग</h3>
+       <p><strong>प्राथमिक आरोग्य केंद्र:</strong> 1</p>
+       <p><strong>उप-केंद्र:</strong> 0</p>
+       <p><strong>डॉक्टर:</strong> 0</p>
+       <p><strong>परिचारिका:</strong> 0</p>
+       <p><strong>रुग्णवाहिका:</strong> उपलब्ध 24/7</p>
+      </div>
+      </div>
+     </div>
+ <!-- CENTER PANEL -->
+     <div>
+      <div class="card person">
+      <h3>🏛️ ग्रामपंचायत इतिहास</h3>
+      <p> ग्रामपंचायत पारोळ, तालुका वसई, जिल्हा पालघर, हे एक सशक्त लोकशाही संस्था आहे. या ग्रामपंचायतीमध्ये पारोळ ही गाव समाविष्ट आहे. ग्रामपंचायतीची स्थापना ०१ एप्रिल १९६५ रोजी झाली असून, ती गावकऱ्यांच्या सहभागातून सामाजिक, सांस्कृतिक आणि प्रशासकीय विकासासाठी सातत्याने कार्यरत आहे. स्थानिक स्वराज्याच्या तत्त्वांवर आधारित ही संस्था नागरिकांच्या गरजांनुसार विविध योजनांची अंमलबजावणी करत आहे.
+ग्रामपंचायतने शिक्षण, आरोग्य, स्वच्छता, पाणीपुरवठा, महिला सक्षमीकरण, युवक विकास, पर्यावरण संवर्धन आणि डिजिटल सेवा यांसारख्या क्षेत्रांमध्ये उल्लेखनीय कामगिरी केली आहे. पारदर्शक प्रशासन, उत्तरदायित्व आणि सर्वसमावेशक विकास हे आमचे मुख्य ध्येय आहे. चारही गावांचा समन्वय, गावकऱ्यांचा सक्रिय सहभाग आणि विश्वास हेच आमच्या कार्याची खरी प्रेरणा आहेत.
+हे संकेतस्थळ ग्रामपंचायतीच्या कार्याची माहिती देण्यासाठी, नागरिकांपर्यंत योजनांचा लाभ पोहोचवण्यासाठी आणि गावाच्या प्रगतीचा वारसा म्हणून विकसित करण्यात आले आहे. ग्रामविकास अधिकारी म्हणून मला अभिमान आहे की ग्रामपंचायत पारोळ  ही संस्था गावाच्या उज्वल भविष्याची दिशा ठरवणारी आहे. चला, एकत्र येऊन आपल्या गावांना विकासाच्या शिखरावर नेऊया.</p>
+</div>
+</div>
+    <!-- RIGHT PANEL -->
+    <div>
+      <div class="card person">
+        <img src="images/sarpanch.jpg">
+        <p><b>ग्रामपंचायत अधिकारी </b><br>सौ.स्नेहा मयुर पाटील</p>
+      </div>
+      <div class="card person">
+        <img src="images/sarpanch.jpg">
+        <p><b>लिपिक</b><br>कैलास गणपत मढवी</p>
+      </div>
+
+      <div class="card person">
+        <img src="images/gramsevak.jpg">
+        <p><b>शिपाई</b><br>सौ.वृंदा कल्पेश पाटील</p>
+      </div>
+      <div class="card person">
+        <img src="images/gramsevak.jpg">
+        <p><b>संगणक परिचालक </b><br>कु.दिया गुरुनाथ कोरडा</p>
+      </div>
+    </div>
+</div>
+  </section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <h2 data-mr="सेवा" data-en="Services">सेवा</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card person">
+      <div class="card-hover bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl shadow-lg p-6 text-white">
+       <div class="text-5xl mb-4">
+        📄
+       </div>
+       <h3 class="text-2xl font-bold mb-3">ग्रामपंचायत दाखले</h3>
+       <ul class="space-y-2 text-sm">
+        <li>जन्म दाखला </li>
+        <li>,मृत्यू  दाखला</li>
+        <li>विवाह दाखला</li>
+        <li>नमुना नं.८ असेसेमेंट</li>
+        <li>हयातीचा दाखला </li>
+       </ul>
+      </div>
+            </div>
+            <div class="card person">
+      <div class="card-hover bg-gradient-to-br from-green-500 to-green-700 rounded-xl shadow-lg p-6 text-white">
+       <div class="text-5xl mb-4">
+        📊
+       </div>
+       <h3 class="text-2xl font-bold mb-3">वार्षिक अहवाल</h3>
+       <p class="text-sm leading-relaxed">ग्रामपंचायतीचे वार्षिक अहवाल येथे उपलब्ध आहेत. गेल्या वर्षीचे सर्व कामकाज, आर्थिक स्थिती आणि विकास कार्यांची संपूर्ण माहिती.</p><button class="mt-4 bg-white text-green-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all"><a href="annualreport" class="nav-link cursor-pointer" data-section="annualreport">
+ अहवाल पहा </a></button>
+      </div>
+          </div>
+             <div class="card person">
+      <div class="card-hover bg-gradient-to-br from-purple-500 to-purple-700 rounded-xl shadow-lg p-6 text-white">
+       <div class="text-5xl mb-4">
+        💰
+       </div>
+       <h3 class="text-2xl font-bold mb-3">अंदाजपत्रक</h3>
+       <p class="text-sm leading-relaxed">चालू वर्षाचे अंदाजपत्रक आणि खर्चाची माहिती. ग्रामपंचायतीचे संपूर्ण आर्थिक नियोजन आणि बजेट तपशील.</p><button class="mt-4 bg-white text-purple-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all"><a href="budget" class="nav-link cursor-pointer" data-section="budget"> तपशील पहा </a></button>
+      </div>
+           </div>
+             <div class="card person">
+      <div class="card-hover bg-gradient-to-br from-orange-500 to-orange-700 rounded-xl shadow-lg p-6 text-white">
+       <div class="text-5xl mb-4">
+        📋
+       </div>
+       <h3 class="text-2xl font-bold mb-3">वार्षिक आराखडा</h3>
+       <p class="text-sm leading-relaxed">वर्ष २०२४-२५ साठीचा विकास आराखडा. नियोजित प्रकल्प, विकास कार्ये आणि अंमलबजावणी योजना.</p><button class="mt-4 bg-white text-orange-700 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-all"><a href="plan" class="nav-link cursor-pointer" data-section="plan">आराखडा पहा </a></button>
+      </div>
+     </div>
+         </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section">
+  <h2 data-mr="ग्रामपंचायत संघ" data-en="GP Team">ग्रामपंचायत संघ</h2>
+  <div class="grid">
+    <div class="card person"><img src="images/sarpanch.jpg" alt="Sarpanch"><p><b data-mr="सरपंच" data-en="Sarpanch"></b><br>सौ.गीता गुरुनाथ कोरडा</b><br>7083888084</p></div>
+    <div class="card person"><img src="images/upsarpanch.jpg" alt="Upsarpanch"><p><b data-mr="उपसरपंच" data-en="Deputy Sarpanch"></b><br>सौ.यज्ञा योगेश पाटील</b><br>8087744670</p></div>
+    <div class="card person"><img src="images/gramsevak.jpg" alt="Grampanchayat Adhikari"><p><b data-mr="ग्रामपंचायत अधिकारी" data-en="Village Secretary"></b><br>सौ.स्नेहा मयूर पाटील</b><br>8408893637</p></div>
+  </div>
+ <table>
+    <tr><th>अ.क्र.</th><th>फोटो</th><th>सभासद  नाव</th><th>पद</th><th>वॉर्ड क्रमांक</th><th>मोबाईल</th></tr>
+    <tr><td>1</td><td><img src="images/m1.jpg" width="50"></td><td>श्री.चेतन गोपाळ पाटील</td><td>सभासद</td><td>१ अ</td><td>9764273991</td></tr>
+        <tr><td>2</td><td><img src="images/m1.jpg" width="50"></td><td>सौ.कविता काळूराम भूयाल</td><td>सभासद</td><td>१ अ</td><td>9011304080</td></tr>
+        <tr><td>3</td><td><img src="images/m1.jpg" width="50"></td><td>श्री.प्रदिप सुरेश हंडवा</td><td>सभासद</td><td>१ अ</td><td>7387569518</td></tr>
+        <tr><td>4</td><td><img src="images/m1.jpg" width="50"></td><td>सौ.सपना सुनिल गडक</td><td>सभासद</td><td>२ ब</td><td>9175846654</td></tr>
+        <tr><td>5</td><td><img src="images/m1.jpg" width="50"></td><td>सौ.संगिता कृष्णा हैबत</td><td>सभासद</td><td>२ ब </td><td>9673820953</td></tr>
+        <tr><td>6</td><td><img src="images/m1.jpg" width="50"></td><td>सौ.कल्पना किरण मुकणे</td><td>सभासद</td><td>२ ब</td><td>9022501512</td></tr>
+        <tr><td>7</td><td><img src="images/m1.jpg" width="50"></td><td>सौ.काव्या कैलास मढवी</td><td>सभासद</td><td>३ क</td><td>7620697119</td></tr>
+        <tr><td>8</td><td><img src="images/m1.jpg" width="50"></td><td>श्री.दिपेश रमाकांत खेवरा</td><td>सभासद</td><td>३ क</td><td>8698648838</td></tr>
+  </table>
+
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section"><h2>Gallery</h2><p>Official photographs will appear here.</p>
+<div class="grid">
+    <img src="images/g1.jpg"><img src="images/g2.jpg"><img src="images/g3.jpg"><img src="images/g4.jpg">
+  </div>
+</section>
+
+<!-- TAX -->
+<section id="tax" class="section">
+  <h2 data-mr="कर वसुली माहिती" data-en="Tax Information">कर वसुली माहिती</h2>
+  <p data-mr="घरपट्टी, पाणीपट्टी व इतर कर ग्रामपंचायत पारोळ मार्फत महाराष्ट्र शासनाच्या मार्गदर्शक सूचनांनुसार वसूल करण्यात येतात." data-en="House tax, water tax and other local taxes are collected by Gram Panchayat Parol as per Government guidelines."></p>
+  <table>
+    <tr><th>कर प्रकार</th><th>विवरण</th></tr>
+    <tr><td>घरपट्टी</td><td>वार्षिक मालमत्ता कर</td></tr>
+    <tr><td>पाणीपट्टी</td><td>पाणीपुरवठा कर</td></tr>
+  </table>
+</section>
+
+<!-- PAY HOUSE TAX -->
+<section id="taxpay" class="section">
+  <h2 data-mr="घरपट्टी ऑनलाइन भरणे" data-en="Pay House Tax Online">घरपट्टी ऑनलाइन भरणे</h2>
+  <div class="card">
+    <p data-mr="घरपट्टी ऑनलाइन भरण्याची सुविधा शासनाच्या अधिकृत पोर्टलवर उपलब्ध आहे. खालील बटणावर क्लिक करून संबंधित पोर्टलवर जा." data-en="Online house tax payment facility is available on the official Government portal. Click below to proceed."></p>
+    <a href="#" style="display:inline-block;padding:10px 16px;background:#0b3c6d;color:#fff;text-decoration:none;font-weight:bold" data-mr="शासकीय पोर्टलवर जा" data-en="Go to Government Portal">शासकीय पोर्टलवर जा</a>
+  </div>
+  <div class="card">
+    <h3 data-mr="सूचना" data-en="Important Notice">सूचना</h3>
+    <ul>
+      <li data-mr="भरणा केल्यानंतर पावती जतन करावी." data-en="Please save the receipt after payment."></li>
+      <li data-mr="कोणतीही अडचण असल्यास ग्रामपंचायत कार्यालयाशी संपर्क साधावा." data-en="For any issue, contact the Gram Panchayat office."></li>
+    </ul>
+  </div>
+</section>
+
+<!-- COMPLAINT -->
+<section id="complaint" class="section">
+  <h2>तक्रार पोर्टल</h2>
+  <form class="card">
+    नाव:<br><input type="text"><br>
+    मोबाईल:<br><input type="text"><br>
+    तक्रार:<br><textarea></textarea><br><br>
+    <button type="submit">Submit</button>
+  </form>
+</section>
+<!-- CONTACT -->
+  <section id="contact" class="section">
+  <h2>संपर्क</h2>
+  <p>कार्यालय पत्ता: ग्रामपंचायत कार्यालय, पारोळ, तालुका वसई, जिल्हा पालघर</p>
+  <p>Email: gp.parol@gov.in</p>
+  <p>मोबाईल: 9XXXXXXXXX</p>
+  <iframe src="https://maps.google.com/maps?q=parol%20vasai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+</section>
+
+</div>
+
+<footer>
+  <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px">
+
+    <!-- OFFICIAL INFO -->
+    <div>
+      <p><b>Official Website of Gram Panchayat Parol</b></p>
+      <p>Taluka: Vasai | District: Palghar | State: Maharashtra</p>
+      <p>Content owned, maintained and updated by Gram Panchayat Parol.</p>
+      <p>Last Updated: 2026</p>
+    </div>
+
+    <!-- GOVERNMENT LINKS -->
+    <div>
+      <p><b>Government Links</b></p>
+      <ul style="list-style:none;padding-left:0">
+        <li><a href="https://www.india.gov.in" target="_blank" style="color:#fff">National Portal of India</a></li>
+        <li><a href="https://www.maharashtra.gov.in" target="_blank" style="color:#fff">Govt. of Maharashtra</a></li>
+        <li><a href="https://rdd.maharashtra.gov.in" target="_blank" style="color:#fff">Rural Development Dept.</a></li>
+        <li><a href="https://www.nic.in" target="_blank" style="color:#fff">National Informatics Centre</a></li>
+      </ul>
+    </div>
+
+    <!-- SOCIAL MEDIA -->
+    <div>
+      <p><b>Social Media</b></p>
+      <ul style="list-style:none;padding-left:0">
+        <li><a href="#" style="color:#fff">Facebook</a></li>
+        <li><a href="#" style="color:#fff">Twitter / X</a></li>
+        <li><a href="#" style="color:#fff">YouTube</a></li>
+      </ul>
+      <p style="font-size:12px">(Only official & verified accounts)</p>
+    </div>
+
+  </div>
+  <hr style="border:0;border-top:1px solid #ffffff55;margin:10px 0">
+  <p style="font-size:12px">This website is designed by Jayesh Shanwar Mob.9325522479</p>
+</footer>
+<script>
+function show(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+
+// Carousel
+let i=0;setInterval(()=>{const s=document.querySelectorAll('.slide');s.forEach(x=>x.classList.remove('active'));i=(i+1)%s.length;s[i].classList.add('active');},3000);
+
+// Language toggle
+function setLang(l){document.querySelectorAll('[data-'+l+']').forEach(e=>e.innerText=e.getAttribute('data-'+l));}
+</script>
+
+</body>
+</html>
