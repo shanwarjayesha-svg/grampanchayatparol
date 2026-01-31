@@ -56,7 +56,7 @@ footer p{margin:4px 0}
 /* Accessibility */
 :focus{outline:2px dashed var(--gov-gold)}
 
-* FIXED NIC GALLERY */
+/* FIXED NIC GALLERY */
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -103,7 +103,11 @@ footer p{margin:4px 0}
   background:#fff;
   padding:5px;
 }
-
+nav{
+position:sticky;
+top:0;
+z-index:999;
+}
 </style>
 </head>
 <body>
@@ -214,11 +218,9 @@ footer p{margin:4px 0}
 
   </div><!-- Village Information -->
      <div class="mb-8">
-      <h2 class="text-3xl font-bold text-center mb-6 text-gray-800">ग्रामपंचायत माहिती</h2>
-      <div class="bg-white rounded-xl shadow-lg p-8">
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <h2 <h2 style="font-size:26px;">ग्रामपंचायत माहिती</h2>
         <div class="card person">
-         <h3 class="text-xl font-bold text-gray-800 mb-4">सामान्य माहिती</h3>
+         <h3 style="font-size:26px;"> सामान्य माहिती</h3>
          <ul class="space-y-2 text-gray-700">
           <li>📍 <strong>क्षेत्रफळ:</strong> २५३० चौ. किमी</li>
           <li>🏘️ <strong>एकूण घरे:</strong> ४७८</li>
@@ -228,7 +230,7 @@ footer p{margin:4px 0}
          </ul>
         </div>
         <div class="card person">
-         <h3 class="text-xl font-bold text-gray-800 mb-4">सुविधा</h3>
+         <h3 style="font-size:26px;">सुविधा</h3>
          <ul class="space-y-2 text-gray-700">
           <li>💧 <strong>पिण्याचे पाणी:</strong> नळ योजना</li>
           <li>⚡ <strong>वीज:</strong> संपूर्ण विद्युतीकरण</li>
@@ -403,19 +405,19 @@ footer p{margin:4px 0}
 
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="images/Events/a.jpeg" onclick="openLightbox(this.src) alt="">
+      <img src="images/Events/a.jpeg" onclick="openLightbox(this.src)" alt="">
       <div class="gallery-caption">ग्रामसभा</div>
     </div>
     <div class="gallery-item">
-      <img src="images/Events/b.jpeg" alt="">
+      <img src="images/Events/b.jpeg" onclick="openLightbox(this.src)" alt="">
       <div class="gallery-caption">स्वच्छता अभियान</div>
     </div>
     <div class="gallery-item">
-      <img src="images/Events/c.jpeg" alt="">
+      <img src="images/Events/c.jpeg" onclick="openLightbox(this.src)" alt="">
       <div class="gallery-caption">रस्ता काम</div>
     </div>
     <div class="gallery-item">
-      <img src="images/Events/d.jpeg" alt="">
+      <img src="images/Events/d.jpeg" onclick="openLightbox(this.src)" alt="">
       <div class="gallery-caption">कार्यक्रम</div>
     </div>
   </div>
@@ -437,7 +439,7 @@ footer p{margin:4px 0}
   <h2 data-mr="घरपट्टी ऑनलाइन भरणे" data-en="Pay House Tax Online">घरपट्टी ऑनलाइन भरणे</h2>
   <div class="card">
     <p data-mr="घरपट्टी ऑनलाइन भरण्याची सुविधा शासनाच्या अधिकृत पोर्टलवर उपलब्ध आहे. खालील बटणावर क्लिक करून संबंधित पोर्टलवर जा." data-en="Online house tax payment facility is available on the official Government portal. Click below to proceed."></p>
-    <a href="#" style="display:inline-block;padding:10px 16px;background:#0b3c6d;color:#fff;text-decoration:none;font-weight:bold" data-mr="शासकीय पोर्टलवर जा" data-en="Go to Government Portal">शासकीय पोर्टलवर जा</a>
+    <a href="https://mahakosh.gov.in" target="_blank" style="display:inline-block;padding:10px 16px;background:#0b3c6d;color:#fff;text-decoration:none;font-weight:bold" data-mr="शासकीय पोर्टलवर जा" data-en="Go to Government Portal">शासकीय पोर्टलवर जा</a>
   </div>
   <div class="card">
     <h3 data-mr="सूचना" data-en="Important Notice">सूचना</h3>
@@ -527,9 +529,12 @@ function setLang(lang){
 }
 
 </script>
-
+<div id="lightbox" onclick="closeLightbox()">
+   <img id="lightboxImg">
+</div>
 </body>
 </html>
+
 
 
 
