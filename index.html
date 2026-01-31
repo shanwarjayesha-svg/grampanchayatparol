@@ -107,17 +107,40 @@ nav{
 position:sticky;
 top:0;
 z-index:999;
+box-shadow:0 2px 6px rgba(0,0,0,.1);
 }
+
+ .card:hover{
+transform:translateY(-4px);
+box-shadow:0 6px 14px rgba(0,0,0,0.15);
+transition:.3s;
+}
+
+button{
+cursor:pointer;
+border:none;
+padding:8px 14px;
+background:var(--gov-blue);
+color:#fff;
+border-radius:4px;
+}
+
+button:hover{
+background:#072a4d;
+}
+
 </style>
 </head>
 <body>
-
+<div style="background:#222;color:#fff;font-size:12px;padding:6px 12px;text-align:right">
+Official Government Website | Secure | India
+</div>
 <header>
   <div class="header-wrap">
     <img src="images/logos/Logo.png" alt="State Emblem of India" class="emblem">
     <div class="header-text">
       <h1 data-mr="ग्रामपंचायत – पारोळ" data-en="Gram Panchayat – Parol">ग्रामपंचायत – पारोळ</h1>
-      <p data-mr="ग्रामीण विकास विभाग, महाराष्ट्र शासन" data-en="Rural Development Department, Government of Maharashtra">ग्रामीण विकास विभाग, महाराष्ट्र शासन</p>
+      <p data-mr="तालुका वसई | जिल्हा पालघर | महाराष्ट्र राज्य" data-en="Taluka Vasai | District Palghar | Maharashtra State">तालुका वसई | जिल्हा पालघर | महाराष्ट्र राज्य</p>
     </div>
     <div class="lang">
       <button onclick="setLang('mr')">मराठी</button>
@@ -128,7 +151,7 @@ z-index:999;
 
 <nav>
   <ul>
-    <li><a onclick="show('home')" data-mr="मुख्यपृष्ठ" data-en="Home">मुख्यपृष्ठ</a></li>
+    <li><a href="#" onclick="show('home');return false;" data-mr="मुख्यपृष्ठ" data-en="Home">मुख्यपृष्ठ</a></li>
     <li><a onclick="show('about')" data-mr="आमच्याबद्दल" data-en="About Us">आमच्याबद्दल</a></li>
     <li><a onclick="show('services')" data-mr="ग्रामपंचायत सेवा" data-en="Services">ग्रामपंचायत सेवा</a></li>
     <li><a onclick="show('team')" data-mr="ग्रामपंचायत संघ" data-en="GP Team">ग्रामपंचायत संघ</a></li>
@@ -142,7 +165,7 @@ z-index:999;
 
 <div class="notice">
   <marquee behavior="scroll" direction="left" data-mr="सूचना: ग्रामपंचायत कार्यालयाचे कामकाज सकाळी 10 ते सायं 5 वाजेपर्यंत  ग्रामपंचायत पारोळ | ISO प्रमाणित प्रगतीपथावर आहे | PAPERLESS प्रमाणित प्रगतीपथावर आहे!!!." data-en="Notice: Office working hours 10 AM to 5 PM  Gram Panchayat Parol | ISO certification in progress | PAPERLESS certification in progress!!!">
-    सूचना: ग्रामपंचायत कार्यालयाचे कामकाज सकाळी 10 ते सायं 5.
+    सूचना: ग्रामपंचायत कार्यालयाचे कामकाज सकाळी 10 ते सायं 5 वाजेपर्यंत  ग्रामपंचायत पारोळ | ISO प्रमाणित प्रगतीपथावर आहे | PAPERLESS प्रमाणित प्रगतीपथावर आहे!!!.
   </marquee>
 </div>
 
@@ -211,6 +234,10 @@ z-index:999;
         <p style="text-align: center;"><b>ग्रामपंचायत अधिकारी </b><br>सौ.स्नेहा मयुर पाटील</p>
       </div>
       <div class="card">
+        <h3>महत्वाची सूचना</h3>
+         <p>सर्व नागरिकांनी आपल्या घरपट्टी वेळेत भरावी.</p>
+      </div>
+      <div class="card">
         <h3 data-mr="कार्यालय वेळ" data-en="Office Hours">कार्यालय वेळ</h3>
         <p>सकाळी 10.00 ते सायं 5.00</p>
       </div>
@@ -218,7 +245,7 @@ z-index:999;
 
   </div><!-- Village Information -->
      <div class="mb-8">
-      <h2 <h2 style="font-size:26px;">ग्रामपंचायत माहिती</h2>
+      <h2 style="font-size:26px;">ग्रामपंचायत माहिती</h2>
         <div class="card person">
          <h3 style="font-size:26px;"> सामान्य माहिती</h3>
          <ul class="space-y-2 text-gray-700">
@@ -506,7 +533,7 @@ z-index:999;
 
   </div>
   <hr style="border:0;border-top:1px solid #ffffff55;margin:10px 0">
-  <p style="font-size:12px">This website is designed by Jayesh Shanwar Mob.9325522479</p>
+  <p style="font-size:12px">This website is designed by Jayesh Shanwar email-shanwarjayesha@gmail.com</p>
 </footer>
 <script>
 function show(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
@@ -534,6 +561,7 @@ function setLang(lang){
 </div>
 </body>
 </html>
+
 
 
 
