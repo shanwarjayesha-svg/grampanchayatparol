@@ -55,6 +55,55 @@ footer p{margin:4px 0}
 
 /* Accessibility */
 :focus{outline:2px dashed var(--gov-gold)}
+
+* FIXED NIC GALLERY */
+.gallery-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.gallery-item{
+  border:1px solid #cbd5e1;
+  padding:6px;
+  background:#fff;
+  border-radius:6px;
+}
+
+.gallery-item img{
+  width:100%;
+  height:140px;      /* FIX SIZE */
+  object-fit:cover;  /* SAME SHAPE */
+  border-radius:4px;
+}
+
+.gallery-caption{
+  text-align:center;
+  font-size:13px;
+  margin-top:6px;
+}
+
+@media(max-width:768px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr);}
+}
+
+#lightbox{
+  display:none;
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.8);
+  text-align:center;
+  z-index:9999;
+}
+#lightbox img{
+  max-width:90%;
+  max-height:90%;
+  margin-top:5%;
+  background:#fff;
+  padding:5px;
+}
+
 </style>
 </head>
 <body>
@@ -349,91 +398,30 @@ footer p{margin:4px 0}
 </section>
 
 <!-- GALLERY -->
-<section id="gallery" class="section-content max-w-7xl mx-auto px-4 py-8 hidden"><h2>Gallery</h2><p>Official photographs will appear here.</p>
-<div class="mb-8">
-<div class="grid-cols-1 md:grid-cols-3 gap-6">
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/a.jpeg">
+<section id="gallery" class="section">
+  <h2 data-mr="छायाचित्रे" data-en="Photo Gallery">छायाचित्रे</h2>
+
+  <div class="gallery-grid">
+    <div class="gallery-item">
+      <img src="images/Events/a.jpeg" onclick="openLightbox(this.src) alt="">
+      <div class="gallery-caption">ग्रामसभा</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/Events/b.jpeg" alt="">
+      <div class="gallery-caption">स्वच्छता अभियान</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/Events/c.jpeg" alt="">
+      <div class="gallery-caption">रस्ता काम</div>
+    </div>
+    <div class="gallery-item">
+      <img src="images/Events/d.jpeg" alt="">
+      <div class="gallery-caption">कार्यक्रम</div>
+    </div>
   </div>
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/b.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/c.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/d.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/e.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/f.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/g.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/h.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/i.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/j.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/k.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/l.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/m.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/n.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/o.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/p.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/q.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/r.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/s.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/t.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/u.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/v.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/w.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/x.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/y.jpeg">
-  </div>
-  <div class="card-hover rounded-xl overflow-hidden shadow-lg bg-gradient-to-br from-blue-400 to-blue-600 h-64 flex items-center justify-center text-white">
-  <img src="images/Events/z.jpeg">
-  </div>
-  </div>
+
+  <div id="lightbox" onclick="closeLightbox()">
+  <img id="lightboxImg">
 </div>
   </section>
 
@@ -466,13 +454,13 @@ footer p{margin:4px 0}
 
 <!-- COMPLAINT -->
 <section id="complaint" class="section">
-  <h2>तक्रार पोर्टल</h2>
-  <form class="card">
-    नाव:<br><input type="text"><br>
-    मोबाईल:<br><input type="text"><br>
-    तक्रार:<br><textarea></textarea><br><br>
-    <button type="submit">Submit</button>
-  </form>
+<form action="https://formsubmit.co/gpsakvar@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="नाव" required><br><br>
+  <input type="text" name="mobile" placeholder="मोबाईल" required><br><br>
+  <textarea name="complaint" placeholder="तक्रार" required></textarea><br><br>
+
+  <button type="submit">Submit</button>
+</form>
 </section>
 <!-- CONTACT -->
   <section id="contact" class="section">
@@ -524,16 +512,29 @@ footer p{margin:4px 0}
 </footer>
 <script>
 function show(id){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active');}
+function openLightbox(src){
+  document.getElementById("lightboxImg").src = src;
+  document.getElementById("lightbox").style.display="block";
+}
+function closeLightbox(){
+  document.getElementById("lightbox").style.display="none";
+}
 
 // Carousel
 let i=0;setInterval(()=>{const s=document.querySelectorAll('.slide');s.forEach(x=>x.classList.remove('active'));i=(i+1)%s.length;s[i].classList.add('active');},3000);
 
 // Language toggle
-function setLang(l){document.querySelectorAll('[data-'+l+']').forEach(e=>e.innerText=e.getAttribute('data-'+l));}
+function setLang(lang){
+  document.querySelectorAll('[data-mr]').forEach(el=>{
+    el.innerText = (lang==='mr') ? el.dataset.mr : el.dataset.en;
+  });
+}
+
 </script>
 
 </body>
 </html>
+
 
 
 
