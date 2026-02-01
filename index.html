@@ -3,6 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Official Website of Gram Panchayat Parol, Taluka Vasai, District Palghar, Maharashtra.">
+<meta name="keywords" content="Gram Panchayat Parol, Vasai, Palghar, Maharashtra Government">
+<meta name="author" content="Gram Panchayat Parol">
 <title>Gram Panchayat | Government of Maharashtra</title>
 
 <!-- NIC-compliant: No external CDN -->
@@ -698,7 +701,24 @@ background:#072a4d;
   background:#072a4d;
   transform:translateY(-2px);
 }
+#home{
+  background:linear-gradient(to bottom,#ffffff,#f5f7fa);
+}
 
+#home .card h3{
+  border-left:4px solid var(--gov-blue);
+  padding-left:8px;
+}
+  .scheme-tag{
+  position:absolute;
+  background:#f3c300;
+  color:#000;
+  padding:4px 10px;
+  font-size:12px;
+  font-weight:bold;
+  border-radius:0 0 8px 0;
+}
+.scheme-card{position:relative;}
 </style>
 </head>
 <body>
@@ -1144,7 +1164,9 @@ Official Government Website | Secure | India
 </section><!-- COMPLAINT -->
 <section id="complaint" class="section">
   <h2 style="text-align:center;margin-bottom:20px;">📝 तक्रार पोर्टल</h2>
-
+<p style="font-size:13px;color:#555;margin-top:12px;">
+ℹ️ खोटी तक्रार केल्यास कायदेशीर कारवाई होऊ शकते.
+</p>
   <div class="complaint-card">
     <form id="complaintForm">
 
@@ -1186,13 +1208,13 @@ Official Government Website | Secure | India
     <div class="contact-card">
       <div class="icon">✉️</div>
       <h3>Email</h3>
-      <p>vpzppalgharvasaiparol@gmail.com</p>
+      <p><a href="mailto:vpzppalgharvasaiparol@gmail.com">vpzppalgharvasaiparol@gmail.com</a></p>
     </div>
 
     <div class="contact-card">
       <div class="icon">📱</div>
       <h3>मोबाईल</h3>
-      <p>8408893637</p>
+      <p><a href="tel:8408893637">8408893637</a></p>
     </div>
 
     <div class="contact-card">
@@ -1251,7 +1273,7 @@ Official Government Website | Secure | India
 
     <!-- OFFICIAL INFO -->
     <div>
-      <p><b>Official Website of Gram Panchayat Parol</b></p>
+      <p style="font-size:11px;opacity:.9">Disclaimer: This is the official website of Gram Panchayat Parol.</p>
       <p>Taluka: Vasai | District: Palghar | State: Maharashtra</p>
       <p>Content owned, maintained and updated by Gram Panchayat Parol.</p>
       <p>Last Updated: 2026</p>
@@ -1314,11 +1336,13 @@ document.getElementById("complaintForm").addEventListener("submit", function(e){
   this.reset();
 });
 </script>
-<div id="lightbox" onclick="closeLightbox()">
-   <img id="lightboxImg">
+<<div id="lightbox" onclick="closeLightbox()" role="dialog" aria-label="Image Preview">
+   <img id="lightboxImg" alt="Gallery Image">
+</div>
 </div>
 </body>
 </html>
+
 
 
 
