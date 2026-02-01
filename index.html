@@ -137,13 +137,156 @@ background:#072a4d;
   padding-left:45px;
   padding-right:45px;
 }
-@media(max-width:768px){
+  @media(max-width:768px){
   .section{
-    padding-left:15px;
-    padding-right:15px;
+    padding-left:10px;
+    padding-right:10px;
   }
 }
+.gov-marquee{
+  background:#f8fafc;
+  padding:14px 0;
+  border-top:1px solid #cbd5e1;
+}
 
+.gov-marquee marquee{
+  display:flex;
+  align-items:center;
+}
+
+.gov-marquee a{
+  display:inline-block;
+  margin:0 28px;              /* IMAGE मध्ये gap */
+}
+
+.gov-marquee img{
+  height:60px;
+  transition:transform .3s, filter .3s;
+  filter:grayscale(100%);
+}
+
+/* Hover effect */
+.gov-marquee a:hover img{
+  transform:scale(1.08);
+  filter:grayscale(0%);
+}
+
+/* Mobile */
+@media(max-width:768px){
+  .gov-marquee img{
+    height:45px;
+  }
+  .gov-marquee a{
+    margin:0 18px;
+  }
+}
+/* TOP GP TEAM (Sarpanch etc.) */
+.team-top{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+  margin:30px 0;
+  flex-wrap:wrap;
+}
+
+.team-card{
+  text-align:center;
+  background:#fff;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  padding:18px 16px;
+  width:260px;
+  transition:transform .3s, box-shadow .3s;
+}
+
+.team-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 10px 22px rgba(0,0,0,0.15);
+}
+
+.team-card img{
+  width:140px;
+  height:140px;
+  object-fit:cover;
+  border-radius:50%;
+  border:4px solid #0b3c6d;
+  margin-bottom:12px;
+}
+
+.team-card h3{
+  margin:6px 0 4px;
+  font-size:18px;
+  color:#0b3c6d;
+}
+
+.team-card p{
+  margin:0;
+  font-size:14px;
+}
+
+.team-card span{
+  display:block;
+  font-size:13px;
+  color:#555;
+  margin-top:4px;
+}
+
+/* Mobile perfect */
+@media(max-width:768px){
+  .team-card{
+    width:100%;
+    max-width:320px;
+  }
+}
+  /* GP Members Table */
+.members-wrap{
+  margin-top:30px;
+  overflow-x:auto;
+}
+
+.members-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#fff;
+  min-width:700px;
+}
+
+.members-table th{
+  background:#0b3c6d;
+  color:#fff;
+  padding:12px 10px;
+  font-size:15px;
+  text-align:center;
+}
+
+.members-table td{
+  padding:10px 8px;
+  text-align:center;
+  border-bottom:1px solid #e2e8f0;
+  font-size:14px;
+}
+
+/* Zebra effect */
+.members-table tbody tr:nth-child(even){
+  background:#f8fafc;
+}
+
+/* Hover */
+.members-table tbody tr:hover{
+  background:#e6f0fa;
+}
+
+/* Mobile hint */
+@media(max-width:768px){
+  .members-wrap::after{
+    content:"⇆ टेबल बाजूला scroll करा";
+    display:block;
+    text-align:center;
+    font-size:13px;
+    color:#555;
+    margin-top:6px;
+  }
+}
 
 </style>
 </head>
@@ -405,12 +548,32 @@ Official Government Website | Secure | India
 <!-- TEAM -->
 <section id="team" class="section">
   <h2 data-mr="ग्रामपंचायत संघ" data-en="GP Team">ग्रामपंचायत संघ</h2>
-  <div class="grid">
-    <div class="card person"><img src="images/Grampanchayat/sarpanch.png" alt="Sarpanch"><p><b data-mr="सरपंच" data-en="Sarpanch"></b><br>सौ.गीता गुरुनाथ कोरडा</b><br>7083888084</p></div>
-    <div class="card person"><img src="images/Grampanchayat/upsarpanch.png" alt="Upsarpanch"><p><b data-mr="उपसरपंच" data-en="Deputy Sarpanch"></b><br>सौ.यज्ञा योगेश पाटील</b><br>8087744670</p></div>
-    <div class="card person"><img src="images/Grampanchayat/gramsevak.png" alt="Grampanchayat Adhikari"><p><b data-mr="ग्रामपंचायत अधिकारी" data-en="Village Secretary"></b><br>सौ.स्नेहा मयूर पाटील</b><br>8408893637</p></div>
+  <div class="team-top">
+
+  <div class="team-card">
+    <img src="images/Grampanchayat/sarpanch.png" alt="Sarpanch">
+    <h3>सरपंच</h3>
+    <p>सौ. गीता गुरुनाथ कोरडा</p>
+    <span>📞 7083888084</span>
   </div>
- <table>
+
+  <div class="team-card">
+    <img src="images/Grampanchayat/upsarpanch.png" alt="Upsarpanch">
+    <h3>उपसरपंच</h3>
+    <p>सौ. यज्ञा योगेश पाटील</p>
+    <span>📞 8087744670</span>
+  </div>
+
+  <div class="team-card">
+    <img src="images/Grampanchayat/gramsevak.png" alt="Grampanchayat Officer">
+    <h3>ग्रामपंचायत अधिकारी</h3>
+    <p>सौ. स्नेहा मयूर पाटील</p>
+    <span>📞 8408893637</span>
+  </div>
+
+</div>
+<div class="members-wrap">
+ <table class="members-table">
     <tr><th>अ.क्र.</th><th>फोटो</th><th>सभासद  नाव</th><th>पद</th><th>वॉर्ड क्रमांक</th><th>मोबाईल</th></tr>
     <tr><td>1</td><td><img src="images/m1.jpg" width="50"></td><td>श्री.चेतन गोपाळ पाटील</td><td>सभासद</td><td>१ अ</td><td>9764273991</td></tr>
         <tr><td>2</td><td><img src="images/m1.jpg" width="50"></td><td>सौ.कविता काळूराम भूयाल</td><td>सभासद</td><td>१ अ</td><td>9011304080</td></tr>
@@ -528,22 +691,47 @@ Official Government Website | Secure | India
 
 </div><!-- container end -->
 
-<div style="background:#f5f7fa;padding:10px 0;border-top:1px solid #cbd5e1">
-  <marquee behavior="scroll" direction="left" scrollamount="5">
-    <img src="images/logos/Bhujal.png" height="70">
-    <img src="images/logos/Digital.png" height="70">
-    <img src="images/logos/G2c.png" height="70">
-    <img src="images/logos/Gpdp.png" height="70">
-    <img src="images/logos/Jalyukt.png" height="70">
-    <img src="images/logos/Majhivasundhra.png" height="70">
-    <img src="images/logos/My Gao.png" height="70">
-    <img src="images/logos/Panchayatraj.png" height="70">
-    <img src="images/logos/Sayukt.png" height="70">
+<<div class="gov-marquee">
+  <marquee behavior="scroll" direction="left" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
+
+    <a href="https://mahakosh.gov.in" target="_blank">
+      <img src="images/logos/Bhujal.png" alt="Bhujal">
+    </a>
+
+    <a href="https://www.digitalindia.gov.in" target="_blank">
+      <img src="images/logos/Digital.png" alt="Digital India">
+    </a>
+
+    <a href="https://www.g2cindia.gov.in" target="_blank">
+      <img src="images/logos/G2c.png" alt="G2C">
+    </a>
+
+    <a href="#">
+      <img src="images/logos/Gpdp.png" alt="GPDP">
+    </a>
+
+    <a href="#">
+      <img src="images/logos/Jalyukt.png" alt="Jalyukt Shivay">
+    </a>
+
+    <a href="#">
+      <img src="images/logos/Majhivasundhra.png" alt="Majhi Vasundhara">
+    </a>
+
+    <a href="#">
+      <img src="images/logos/My Gao.png" alt="My Gao">
+    </a>
+
+    <a href="#">
+      <img src="images/logos/Panchayatraj.png" alt="Panchayat Raj">
+    </a>
+
+    <a href="#">
+      <img src="images/logos/Sayukt.png" alt="Sayukt">
+    </a>
+
   </marquee>
 </div>
-
-<footer>
-
 <footer>
   <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:16px">
 
@@ -607,6 +795,7 @@ function setLang(lang){
 </div>
 </body>
 </html>
+
 
 
 
