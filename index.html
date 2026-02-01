@@ -287,6 +287,109 @@ background:#072a4d;
     margin-top:6px;
   }
 }
+/* Complaint Portal */
+.complaint-card{
+  max-width:520px;
+  margin:0 auto;
+  background:#fff;
+  padding:25px 28px;
+  border-radius:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+  border-top:5px solid #0b3c6d;
+}
+
+.form-group{
+  margin-bottom:16px;
+}
+
+.form-group label{
+  display:block;
+  font-weight:bold;
+  margin-bottom:6px;
+}
+
+.form-group input,
+.form-group textarea{
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #cbd5e1;
+  border-radius:6px;
+  font-size:14px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus{
+  border-color:#0b3c6d;
+  outline:none;
+  box-shadow:0 0 0 2px rgba(11,60,109,0.15);
+}
+
+.submit-btn{
+  width:100%;
+  padding:12px;
+  background:#0b3c6d;
+  color:#fff;
+  font-size:16px;
+  font-weight:bold;
+  border-radius:6px;
+  transition:background .3s, transform .2s;
+}
+
+.submit-btn:hover{
+  background:#072a4d;
+  transform:translateY(-2px);
+}
+
+.success-msg{
+  display:none;
+  margin-top:18px;
+  padding:14px;
+  background:#e6fffa;
+  border:1px solid #38b2ac;
+  color:#065f46;
+  border-radius:6px;
+  text-align:center;
+  font-size:14px;
+}
+/* Contact Section */
+.contact-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.contact-card{
+  background:#fff;
+  padding:20px 18px;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  text-align:center;
+  transition:transform .3s, box-shadow .3s;
+}
+
+.contact-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.contact-card .icon{
+  font-size:36px;
+  margin-bottom:12px;
+}
+
+.contact-card h3{
+  font-size:18px;
+  color:#0b3c6d;
+  margin-bottom:8px;
+}
+
+.contact-card p{
+  font-size:14px;
+  color:#555;
+  line-height:1.5;
+}
 
 </style>
 </head>
@@ -311,7 +414,7 @@ Official Government Website | Secure | India
 <nav>
   <ul>
     <li><a href="#" onclick="show('home');return false;" data-mr="मुख्यपृष्ठ" data-en="Home">मुख्यपृष्ठ</a></li>
-    <li><a onclick="show('about')" data-mr="आमच्याबद्दल" data-en="About Us">आमच्याबद्दल</a></li>
+    <li><a href="#" onclick="show('about');return false;" data-mr="आमच्याबद्दल" data-en="About Us">आमच्याबद्दल</a></li>
     <li><a onclick="show('services')" data-mr="ग्रामपंचायत सेवा" data-en="Services">ग्रामपंचायत सेवा</a></li>
     <li><a onclick="show('team')" data-mr="ग्रामपंचायत संघ" data-en="GP Team">ग्रामपंचायत संघ</a></li>
     <li><a onclick="show('gallery')" data-mr="छायाचित्रे" data-en="Gallery">छायाचित्रे</a></li>
@@ -390,7 +493,7 @@ Official Government Website | Secure | India
            data-en="Gram Panchayat Parol, Taluka Vasai, District Palghar operates under Maharashtra Gram Panchayat Act, 1958."></p>
       </div>
       <div class="card">
-        <h2 data-mr="लोकसंख्या माहिती" data-en="Population Statistics"></h2>
+        <h2 data-mr="लोकसंख्या माहिती" data-en="Population Information"></h2>
         <table>
           <tr><th>एकूण</th><th>पुरुष</th><th>स्त्री</th><th>अ.जा.</th><th>अ.ज.</th><th>इतर</th></tr>
           <tr><td>2153</td><td>1056</td><td>1097</td><td>884</td><td>316</td><td>953</td></tr>
@@ -672,26 +775,72 @@ Official Government Website | Secure | India
 
 <!-- COMPLAINT -->
 <section id="complaint" class="section">
-<form action="https://formsubmit.co/gpsakvar@gmail.com" method="POST">
-  <input type="text" name="name" placeholder="नाव" required><br><br>
-  <input type="text" name="mobile" placeholder="मोबाईल" required><br><br>
-  <textarea name="complaint" placeholder="तक्रार" required></textarea><br><br>
+  <h2 style="text-align:center;margin-bottom:20px;">📝 तक्रार पोर्टल</h2>
 
-  <button type="submit">Submit</button>
-</form>
+  <div class="complaint-card">
+    <form id="complaintForm">
+
+      <div class="form-group">
+        <label>नाव</label>
+        <input type="text" id="name" placeholder="आपले पूर्ण नाव" required>
+      </div>
+
+      <div class="form-group">
+        <label>मोबाईल क्रमांक</label>
+        <input type="tel" id="mobile" placeholder="10 अंकी मोबाईल" pattern="[0-9]{10}" required>
+      </div>
+
+      <div class="form-group">
+        <label>तक्रार तपशील</label>
+        <textarea id="complaintText" rows="4" placeholder="आपली तक्रार येथे लिहा" required></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">तक्रार नोंदवा</button>
+    </form>
+
+    <div id="successMsg" class="success-msg">
+      ✅ तुमची तक्रार यशस्वीरीत्या नोंदवली आहे.  
+      <br>तक्रार क्रमांक: <b>GP-2026-01</b>
+    </div>
+  </div>
 </section>
+
 <!-- CONTACT -->
-  <section id="contact" class="section">
-  <h2>संपर्क</h2>
-  <p>कार्यालय पत्ता: ग्रामपंचायत कार्यालय, पारोळ, तालुका वसई, जिल्हा पालघर</p>
-  <p>Email: gp.parol@gov.in</p>
-  <p>मोबाईल: 9XXXXXXXXX</p>
-  <iframe src="https://maps.google.com/maps?q=parol%20vasai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="250"></iframe>
+ <section id="contact" class="section">
+  <h2 style="text-align:center;margin-bottom:25px;">📞 संपर्क</h2>
+
+  <div class="contact-grid">
+
+    <div class="contact-card">
+      <div class="icon">🏢</div>
+      <h3>कार्यालय पत्ता</h3>
+      <p>ग्रामपंचायत कार्यालय, पारोळ, तालुका वसई, जिल्हा पालघर, महाराष्ट्र</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon">✉️</div>
+      <h3>Email</h3>
+      <p>gp.parol@gov.in</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon">📱</div>
+      <h3>मोबाईल</h3>
+      <p>9XXXXXXXXX</p>
+    </div>
+
+    <div class="contact-card">
+      <div class="icon">🗺️</div>
+      <h3>नकाशा</h3>
+      <iframe src="https://maps.google.com/maps?q=parol%20vasai&t=&z=13&ie=UTF8&iwloc=&output=embed" width="100%" height="200" style="border:0;border-radius:8px;"></iframe>
+    </div>
+
+  </div>
 </section>
 
 </div><!-- container end -->
 
-<<div class="gov-marquee">
+<div class="gov-marquee">
   <marquee behavior="scroll" direction="left" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
 
     <a href="https://mahakosh.gov.in" target="_blank">
@@ -788,13 +937,24 @@ function setLang(lang){
     el.innerText = (lang==='mr') ? el.dataset.mr : el.dataset.en;
   });
 }
+document.getElementById("complaintForm").addEventListener("submit", function(e){
+  e.preventDefault();
 
+  // Fake complaint ID (demo)
+  const id = "GP-2026-" + Math.floor(100 + Math.random()*900);
+
+  document.querySelector("#successMsg b").innerText = id;
+  document.getElementById("successMsg").style.display = "block";
+
+  this.reset();
+});
 </script>
 <div id="lightbox" onclick="closeLightbox()">
    <img id="lightboxImg">
 </div>
 </body>
 </html>
+
 
 
 
