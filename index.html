@@ -562,7 +562,86 @@ background:#072a4d;
   background:#072a4d;
   transform:translateY(-2px);
 }
+.card.update{
+  background:#f8fafc;
+  border-radius:10px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.06);
+  transition: transform .3s, box-shadow .3s;
+}
+.card.update:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 28px rgba(0,0,0,0.12);
+}
+.card.update ul li::before{
+  content:"•";
+  color:#0b3c6d;
+  display:inline-block;
+  width:1em;
+  margin-left:-1em;
+}
+/* House Tax Online Section */
+.taxpay-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:22px;
+  max-width:1000px;
+  margin:0 auto;
+}
 
+.taxpay-card{
+  background:#fff;
+  border-radius:12px;
+  padding:22px 18px;
+  box-shadow:0 8px 22px rgba(0,0,0,0.08);
+  transition:transform .3s, box-shadow .3s;
+}
+
+.taxpay-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.15);
+}
+
+.taxpay-card h3{
+  font-size:18px;
+  color:#0b3c6d;
+  margin-bottom:10px;
+}
+
+.taxpay-card p, .taxpay-card ul{
+  font-size:14px;
+  line-height:1.6;
+  color:#555;
+}
+
+.taxpay-card ul{
+  list-style:none;
+  padding-left:0;
+}
+
+.taxpay-card ul li::before{
+  content:"•";
+  color:#0b3c6d;
+  display:inline-block;
+  width:1em;
+  margin-left:-1em;
+}
+
+.taxpay-btn{
+  display:inline-block;
+  margin-top:12px;
+  padding:10px 18px;
+  background:#0b3c6d;
+  color:#fff;
+  border-radius:8px;
+  font-weight:bold;
+  text-decoration:none;
+  transition: background .3s, transform .2s;
+}
+
+.taxpay-btn:hover{
+  background:#072a4d;
+  transform:translateY(-2px);
+}
 </style>
 </head>
 <body>
@@ -934,26 +1013,32 @@ Official Government Website | Secure | India
     </div>
 
   </div>
-</section>
-
-
-<!-- PAY HOUSE TAX -->
+</section><!-- PAY HOUSE TAX -->
 <section id="taxpay" class="section">
-  <h2 data-mr="घरपट्टी ऑनलाइन भरणे" data-en="Pay House Tax Online">घरपट्टी ऑनलाइन भरणे</h2>
-  <div class="card">
-    <p data-mr="घरपट्टी ऑनलाइन भरण्याची सुविधा शासनाच्या अधिकृत पोर्टलवर उपलब्ध आहे. खालील बटणावर क्लिक करून संबंधित पोर्टलवर जा." data-en="Online house tax payment facility is available on the official Government portal. Click below to proceed."></p>
-    <a href="https://mahakosh.gov.in" target="_blank" style="display:inline-block;padding:10px 16px;background:#0b3c6d;color:#fff;text-decoration:none;font-weight:bold" data-mr="शासकीय पोर्टलवर जा" data-en="Go to Government Portal">शासकीय पोर्टलवर जा</a>
-  </div>
-  <div class="card">
-    <h3 data-mr="सूचना" data-en="Important Notice">सूचना</h3>
-    <ul>
-      <li data-mr="भरणा केल्यानंतर पावती जतन करावी." data-en="Please save the receipt after payment."></li>
-      <li data-mr="कोणतीही अडचण असल्यास ग्रामपंचायत कार्यालयाशी संपर्क साधावा." data-en="For any issue, contact the Gram Panchayat office."></li>
-    </ul>
-  </div>
-</section>
+  <h2 style="text-align:center;margin-bottom:25px;">💻 घरपट्टी ऑनलाइन भरणे</h2>
 
-<!-- COMPLAINT -->
+  <div class="taxpay-grid"><!-- Information Card -->
+    <div class="taxpay-card">
+      <p>
+        घरपट्टी ऑनलाइन भरण्याची सुविधा शासनाच्या अधिकृत पोर्टलवर उपलब्ध आहे. 
+        खालील बटणावर क्लिक करून संबंधित पोर्टलवर जा.
+      </p>
+      <a href="https://mahakosh.gov.in" target="_blank" class="taxpay-btn">
+        शासकीय पोर्टलवर जा
+      </a>
+    </div>
+
+    <!-- Important Notice Card -->
+    <div class="taxpay-card">
+      <h3>सूचना</h3>
+      <ul>
+        <li>भरणा केल्यानंतर पावती जतन करावी.</li>
+        <li>कोणतीही अडचण असल्यास ग्रामपंचायत कार्यालयाशी संपर्क साधावा.</li>
+      </ul>
+    </div>
+
+  </div>
+</section><!-- COMPLAINT -->
 <section id="complaint" class="section">
   <h2 style="text-align:center;margin-bottom:20px;">📝 तक्रार पोर्टल</h2>
 
@@ -983,9 +1068,7 @@ Official Government Website | Secure | India
       <br>तक्रार क्रमांक: <b>GP-2026-01</b>
     </div>
   </div>
-</section>
-
-<!-- CONTACT -->
+</section><!-- CONTACT -->
  <section id="contact" class="section">
   <h2 style="text-align:center;margin-bottom:25px;">📞 संपर्क</h2>
 
@@ -1017,7 +1100,6 @@ Official Government Website | Secure | India
 
   </div>
 </section>
-
 </div><!-- container end -->
 
 <div class="gov-marquee">
@@ -1134,6 +1216,7 @@ document.getElementById("complaintForm").addEventListener("submit", function(e){
 </div>
 </body>
 </html>
+
 
 
 
