@@ -131,6 +131,17 @@ background:#072a4d;
 .section{
   min-height: calc(100vh - 420px);
 }
+.container{
+  flex:1;
+  max-width:1200px;      /* website width control */
+  margin:0 auto;        /* center align */
+  padding:16px 20px;    /* LEFT - RIGHT space */
+}
+@media(max-width:768px){
+  .container{
+    padding:14px 14px;  /* mobile side space */
+  }
+}
 
 </style>
 </head>
@@ -567,6 +578,7 @@ function setLang(lang){
 </div>
 </body>
 </html>
+
 
 
 
