@@ -748,6 +748,47 @@ background:#072a4d;
   transform:translateY(-3px);
   transition:.3s;
 }
+  .left-panel{
+  position:sticky;
+  top:90px;
+}
+/* HOME PAGE MOBILE FIX */
+@media(max-width:768px){
+
+  /* HOME grid → single means readable */
+  #home > div{
+    display:flex !important;
+    flex-direction:column;
+    gap:16px;
+  }
+
+  /* Left, Center, Right panels full width */
+  #home > div > div{
+    width:100%;
+  }
+
+  /* Carousel height fix */
+  .carousel{
+    height:200px;
+  }
+
+  /* Cards spacing */
+  .left-panel .card,
+  #home .card{
+    margin-bottom:14px;
+  }
+
+  /* Headings smaller */
+  #home h2{
+    font-size:20px;
+  }
+
+  /* Images center */
+  .person img{
+    margin:0 auto;
+    display:block;
+  }
+}
 </style>
 </head>
 <body>
@@ -792,8 +833,7 @@ Official Government Website | Secure | India
 
 <!-- HOME (gpsakvar.in inspired 3-column body layout) -->
 <section id="home" class="section active">
-  <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:14px">
-
+ <div style="display:grid;grid-template-columns:1fr 2fr 1fr;gap:22px;align-items:flex-start">
     <!-- LEFT PANEL -->
     <div>
       <div class="card">
@@ -1427,6 +1467,7 @@ document.getElementById("complaintForm").addEventListener("submit", function(e){
 </div>
 </body>
 </html>
+
 
 
 
